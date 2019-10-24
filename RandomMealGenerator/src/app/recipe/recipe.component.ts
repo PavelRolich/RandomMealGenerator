@@ -1,15 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output } from '@angular/core';
+import { LoadRecipesService, Recipe } from '../load-recipes.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-recipe',
   templateUrl: './recipe.component.html',
-  styleUrls: ['./recipe.component.scss']
+  styleUrls: ['./recipe.component.scss'],
+  providers: [LoadRecipesService]
 })
-export class RecipeComponent implements OnInit {
+export class RecipeComponent implements OnInit, OnDestroy {
+  recipesList: Recipe[];
+  selectedRecipe: Recipe;
+  subscription: Subscription;
+  @Input() randomNum: number;
 
-  constructor() { }
+  constructor(private loadRecipesService: LoadRecipesService) { }
 
-  ngOnInit() {
+  getRecipes(): void {
+    this.subscription = this.loadRecipesService.getRecipes().subscribe(result => {
+      this.recipesList = result;
+    });
   }
 
+  selectRecipe(): void {
+    this.selectedRecipe = this.recipesList[this.randomNum];
+  }
+
+  ngOnInit() {
+    this.getRecipes();
+    this.selectRecipe();
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }

@@ -1,0 +1,42 @@
+%center-align {
+  text-align: center;
+  justify-content: center;
+}
+
+$color: #33c3f3;
+
+.card {
+  max-width: 90%;
+  margin: auto;
+  @extend %center-align;
+
+  .header {
+    @extend %center-align;
+
+    .title {
+      font-size: 36px;
+    }
+
+    .subtitle {
+      font-size: 28px;
+    }
+  }
+
+  .action {
+    .btn-random-meal {
+      font-size: 16px;
+      color: #ffffff;
+      text-transform: uppercase;
+      font-weight: bold;
+      height: 40px;
+      border-radius: 4px;
+      background-color: $color;
+      border-color: $color;
+      padding: 0 30px;
+
+      .img-burger {
+        width: 15px;
+      }
+    }
+  }
+}

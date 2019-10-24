@@ -1,0 +1,12 @@
+<mat-card class="card">
+  <mat-card-header class="header">
+      <mat-card-title class="title">Feeling hungry?</mat-card-title>
+      <mat-card-subtitle class="subtitle">Get a random meal by clicking below</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions class="action">
+    <button class="btn-random-meal" (click)="showRecipe()" mat-button>Get meal <img class="img-burger" src="../assets/burger.png" alt="burger"></button>
+  </mat-card-actions>
+  <mat-card-content class="content">
+    <app-recipe *ngIf="viewRecipe" [randomNum]="numRecipe"></app-recipe>
+  </mat-card-content>
+</mat-card>

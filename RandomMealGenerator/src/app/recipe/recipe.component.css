@@ -1,0 +1,6 @@
+.card {
+  max-width: 90%;
+}
+.card .header .btn-random-meal .img-burger {
+  width: 10px;
+}
