@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
@@ -8,17 +8,16 @@ import { map } from 'rxjs/operators';
 })
 export class LoadRecipesService {
 
-  apiHost = '../assets/recipes.json';
+  /* apiHost = '../assets/recipes.json';
   recipes: Observable<Recipe[]>;
 
   constructor(private http: HttpClient) {
-    this.recipes = this.http.get(this.apiHost)
-      .pipe(map((rp: Recipe[]) => rp));
-   }
+    this.recipes = this.http.get(this.apiHost).pipe(map((rp: Recipe[]) => rp));
+  }
 
   getRecipes(): Observable<Recipe[]> {
     return this.recipes;
-  }
+  } */
 }
 
 export interface Recipe {
@@ -28,7 +27,7 @@ export interface Recipe {
     area: string;
     tags: string;
   };
-  recipeIngredients: [];
+  recipeIngredients: string[];
   recipeCooking: string;
   recipeImgURL: string;
 }

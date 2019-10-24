@@ -7,6 +7,6 @@
     <button class="btn-random-meal" (click)="showRecipe()" mat-button>Get meal <img class="img-burger" src="../assets/burger.png" alt="burger"></button>
   </mat-card-actions>
   <mat-card-content class="content">
-    <app-recipe *ngIf="viewRecipe" [randomNum]="numRecipe"></app-recipe>
+    <app-recipe *ngIf="viewRecipe" [selectedRecipe]="selectedRecipe"></app-recipe>
   </mat-card-content>
 </mat-card>

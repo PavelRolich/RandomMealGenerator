@@ -1,26 +1,10 @@
- <mat-grid-list cols="1" rowHeight="1:1">
-  <mat-grid-tile>
-    <mat-list role="list">
-      <mat-list-item role="listitem"><img src="selectedRecipe.recipeImgURL" alt="recipeImg"></mat-list-item>
-      <mat-list-item role="listitem">
-        <p><b>Категория:</b> {{ selectedRecipe.recipeCategory.category }}</p>
-        <p><b>Кухня:</b> {{ selectedRecipe.recipeCategory.category }}</p>
-        <p><b>Теги:</b> {{ selectedRecipe.recipeCategory.category }}</p>
-      </mat-list-item>
-      <mat-list-item role="listitem">
-        <p>Ингредиенты</p>
-        <mat-list role="list">
-          <mat-list-item role="listitem" *ngFor="let ingredient of selectedRecipe.recipeIngredients">
-            ingredient
-          </mat-list-item>
-        </mat-list>
-      </mat-list-item>
-    </mat-list>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <mat-list role="list">
-      <mat-list-item role="listitem">{{ selectedRecipe.recipeName }}</mat-list-item>
-      <mat-list-item role="listitem">{{ selectedRecipe.recipeCooking }}</mat-list-item>
-    </mat-list>
-  </mat-grid-tile>
-</mat-grid-list>
+<img [src]="selectedRecipe.recipeImgURL" alt="recipeImg">
+<p><b>Категория:</b> {{ selectedRecipe.recipeCategory.category }}</p>
+<p><b>Кухня:</b> {{ selectedRecipe.recipeCategory.category }}</p>
+<p><b>Теги:</b> {{ selectedRecipe.recipeCategory.category }}</p>
+<p>Ингредиенты</p>
+<ng-container *ngFor="let ingredient of selectedRecipe.recipeIngredients">
+  {{ ingredient }}
+</ng-container>
+<p>{{ selectedRecipe.recipeName }}</p>
+<p>{{ selectedRecipe.recipeCooking }}</p>
